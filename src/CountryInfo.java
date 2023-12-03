@@ -28,3 +28,4 @@ public class CountryInfo {
         return "Country: " + country + ", Capital: " + capital;
     }
 }
+
