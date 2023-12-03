@@ -25,8 +25,9 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         BlockingQueue<String> t1t2 = new LinkedBlockingQueue<>(1);
         BlockingQueue<String> t2t1 = new LinkedBlockingQueue<>(1);
-        new MyThread(t1t2, t2t1,"countries.txt").start();
+        new MyThread(t1t2, t2t1, "countries.txt").start();
         new MyThread(t2t1, t1t2, "capitals.txt").start();
         t1t2.put("Start");
+        System.out.println("\tReading from files:");
     }
 }
