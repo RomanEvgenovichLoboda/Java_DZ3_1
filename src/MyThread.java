@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.concurrent.BlockingQueue;
 
 public class MyThread extends Thread {
@@ -37,20 +36,13 @@ public class MyThread extends Thread {
                     capital = line;
                     countryInfos.add(new CountryInfo(country, capital));
                 }
-                Thread.sleep(500);
+                Thread.sleep(300);
                 out.put("you turn");
             }
-            if (path.equals("capitals.txt")) {
-                System.out.println("\tSorting by country:");
-                countryInfos.sort(Comparator.comparing(CountryInfo::getCountry));
-                countryInfos.forEach(System.out::println);
-                System.out.println("\tSorting by capital:");
-                countryInfos.sort(Comparator.comparing(CountryInfo::getCapital));
-                countryInfos.forEach(System.out::println);
-            }
         } catch (IOException | InterruptedException e) {
-            throw new RuntimeException(e);
+            System.err.println(e.getMessage());
         }
     }
+
 }
 
